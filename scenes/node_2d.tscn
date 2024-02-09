@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://btirjmi1tqbvr"]
+
+[ext_resource type="Texture2D" uid="uid://bcwryxcrp5m2k" path="res://assets/generatedef.png" id="1_7nokl"]
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_nl5xw"]
+[ext_resource type="Texture2D" uid="uid://b04fe7ppms5l8" path="res://assets/generateon.png" id="2_drv8u"]
+[ext_resource type="Texture2D" uid="uid://brhly2auvew67" path="res://assets/generatehovered (1).png" id="3_3x82u"]
+[ext_resource type="FontFile" uid="uid://b6wmk3p6itohn" path="res://TooSweets-qZzv0.otf" id="5_48rt0"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_nl5xw")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1171.0
+offset_bottom = 761.0
+color = Color(0, 0, 0, 1)
+
+[node name="Button" type="TextureButton" parent="."]
+offset_left = 632.0
+offset_top = 238.0
+offset_right = 1140.0
+offset_bottom = 446.0
+texture_normal = ExtResource("1_7nokl")
+texture_pressed = ExtResource("2_drv8u")
+texture_hover = ExtResource("3_3x82u")
+
+[node name="GeneratedText" type="RichTextLabel" parent="."]
+clip_contents = false
+offset_left = 36.0
+offset_top = 279.0
+offset_right = 612.0
+offset_bottom = 374.0
+theme_override_fonts/normal_font = ExtResource("5_48rt0")
+theme_override_font_sizes/normal_font_size = 35
+bbcode_enabled = true
+text = "[center]Veuillez generer un bebe[/center]"
+
+[node name="RarityText" type="RichTextLabel" parent="."]
+clip_contents = false
+offset_left = 36.0
+offset_top = 388.0
+offset_right = 612.0
+offset_bottom = 436.0
+theme_override_fonts/normal_font = ExtResource("5_48rt0")
+theme_override_font_sizes/normal_font_size = 35
+bbcode_enabled = true
+
+[node name="LangButton" type="CheckButton" parent="."]
+offset_left = 979.0
+offset_top = 445.0
+offset_right = 1133.0
+offset_bottom = 502.0
+text = "English mode"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[connection signal="toggled" from="LangButton" to="." method="_on_lang_button_toggled"]
